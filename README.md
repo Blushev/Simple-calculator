@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Getting Started with Create React App
+# Figma layout
 Figma layout: https://www.figma.com/proto/D5OltlIPKtozs1ib4bBuP4/Untitled?node-id=1-4&scaling=min-zoom
 
 ## Available Scripts
