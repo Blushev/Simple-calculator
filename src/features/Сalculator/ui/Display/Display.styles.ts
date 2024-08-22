@@ -1,10 +1,20 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Colors } from "../../../../theme/Colors";
+
+const shakeAnimation = keyframes`
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+`;
+
+interface DisplayProps {
+  isError?: boolean;
+}
 
 export const Display = styled.div`
   display: flex;
-  flex-direction: column-reverse; 
-  
+  flex-direction: column-reverse;
+
   font-family: Arial;
   background: ${Colors.Transparent};
   font-size: 48px;
@@ -22,9 +32,16 @@ export const Display = styled.div`
   }
 `;
 
-export const Result = styled.div`
+export const Result = styled.div<DisplayProps>`
   font-size: 46px;
   font-weight: bold;
+
+  ${({ isError }) =>
+    isError &&
+    css`
+      color: ${Colors.RedOrange};
+      animation: ${shakeAnimation} 0.3s ease-in-out;
+    `}
 `;
 
 export const SmallText = styled.div`

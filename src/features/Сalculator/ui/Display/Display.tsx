@@ -7,12 +7,16 @@ interface DisplayProps {
     originalExpression: string;
   }
   
-  export const Display: FC<DisplayProps> = ({ value, originalExpression }) => (
+  export const Display: FC<DisplayProps> = ({ value, originalExpression }) => {
+    const isError = value.startsWith('Error');
+
+    return(
     <styles.Display>
-      <styles.Result>{value}</styles.Result>
+      <styles.Result isError={isError}>{value}</styles.Result>
       <styles.Separator/ >
       {originalExpression && (
         <styles.SmallText>{originalExpression}</styles.SmallText>
       )}
     </styles.Display>
   );
+};
