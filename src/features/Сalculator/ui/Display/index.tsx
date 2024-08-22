@@ -1,1 +1,1 @@
-import { Display } from "./Display";
+export { Display } from "./Display";

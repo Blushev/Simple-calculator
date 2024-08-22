@@ -1,1 +1,1 @@
-import { ButtonPanel } from "./ButtonPanel";
+export { ButtonPanel } from "./ButtonPanel";

@@ -1,11 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 
 import { calculate, CalculatorState } from "./model/useCalculator";
-import { ButtonPanel } from "./ui/ButtonPanel/ButtonPanel";
-import { Display } from "./ui/Display/Display";
+import { ButtonPanel, Display } from "./ui";
+import { mapKeyToLabel } from "./utils/keyHandler";
 
 import * as styles from './Calculator.styles';
-import { mapKeyToLabel } from "./utils/keyHandler";
 
 export const Calculator: FC = () => {
 

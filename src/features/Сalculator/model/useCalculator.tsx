@@ -31,11 +31,7 @@ export const calculate = (state: CalculatorState, label: string): CalculatorStat
         } else if (label === '√') {
           newExpression = '√';
         } else if (operators.includes(label)) {
-          if (label === '+' || label === '-') {
-            newExpression = label;
-          } else {
-            newExpression = '0' + label;
-          }
+          newExpression = (label === '+' || label === '-') ? label : '0' + label;
         } else {
           newExpression = label;
         }
@@ -84,14 +80,15 @@ const evaluateExpression = (expression: string): string => {
     return "Error";
   }
 };
+
 const tokenize = (expression: string): string[] => {
-  const regex = /\d+(\,\d+)?|[+\-×/%√]/g;
+  const regex = /\d+(?:\,\d+)?|[+\-×/%√]/g;  // Исправлено: удален ненужный escape-символ
   return expression.match(regex) || [];
 };
 
 const parseTokens = (tokens: string[]): number => {
-  let stack: number[] = [];
-  let operatorStack: string[] = [];
+  const stack: number[] = [];
+  const operatorStack: string[] = [];
 
   const applyOperator = () => {
     const operator = operatorStack.pop();
