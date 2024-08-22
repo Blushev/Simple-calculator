@@ -58,7 +58,7 @@ describe('calculate', () => {
   });
 
   it('should evaluate complex expressions correctly', () => {
-    const initialState: CalculatorState = { expression: '2+2*2' };
+    const initialState: CalculatorState = { expression: '2+2×2' };
     const newState = calculate(initialState, '=');
     expect(newState.expression).toBe('6');
   });
@@ -66,6 +66,6 @@ describe('calculate', () => {
   it('should handle division by zero gracefully', () => {
     const initialState: CalculatorState = { expression: '2/0' };
     const newState = calculate(initialState, '=');
-    expect(newState.expression).toBe('Infinity');
+    expect(newState.expression).toBe('Error: Division by zero');
   });
 });
